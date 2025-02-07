@@ -55,8 +55,7 @@
     </div>
 
     <script>
-        // Your OpenWeatherMap API key
-const API_KEY = '095b52a689afcecde0115fbc89265020'; // Replace with your OpenWeatherMap API key
+const API_KEY = '095b52a689afcecde0115fbc89265020'; 
 const apiUrl = 'https://api.openweathermap.org/data/2.5/weather';
 
 document.getElementById('get-weather-btn').addEventListener('click', getWeather);
@@ -68,17 +67,14 @@ function getWeather() {
         return;
     }
 
-    // Build the API URL
     const url = `${apiUrl}?q=${city}&appid=${API_KEY}&units=metric`;
 
     fetch(url)
         .then(response => response.json())
         .then(data => {
             if (data.cod !== 200) {
-                // If city is not found or error in API response
                 displayError(data.message);
             } else {
-                // Display weather data
                 displayWeather(data);
             }
         })
